@@ -1,17 +1,19 @@
 fun main() {
-    val classCoffee = coffeeMachine()
-    print("Write action (buy, fill, take, remaining, exit):\n> ")
-    when (readln()) {
-        "buy" -> classCoffee.buy()
-        "fill" -> classCoffee.fill()
-        "take" -> classCoffee.take()
-        "remaining" -> classCoffee.remaining()
-        "exit" -> return
-        else -> main()
-    }
+    val classCoffee = CoffeeMachine()
+    do {
+        print("Write action (buy, fill, take, remaining, exit):\n> ")
+        when (readln()) {
+            "buy" -> classCoffee.buy()
+            "fill" -> classCoffee.fill()
+            "take" -> classCoffee.take()
+            "remaining" -> classCoffee.remaining()
+            "exit" -> break
+            else -> main()
+        }
+    }while (true)
 }
 
-class coffeeMachine {
+class CoffeeMachine {
     private var water: Int = 400
     private var milk: Int = 540
     private var beans: Int = 120
